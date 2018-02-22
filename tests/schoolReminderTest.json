@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.d2759b48-8a72-41a5-b51a-28e5711a524b",
+    "application": {
+      "applicationId": "amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AHRFFSAR2UBVQVK7BBURW7YNV6LFYIB3K5VRM6P4LWJWLKZ5Z7JJD4A6EV4PITNY3PVSPI5ES5QTWJJCKIPYJG2A6DNOQGR4NGNUKIWK2QJACODJTSBVDXKYWVBMZ2S6WNNEVREWEJKRSOZEDFCU4F7FXZYORFCNKDGML4WM4ORB7OSVVNTFPSDY35YAPMD2T7LHJQGHZTWPAQQ"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {
+      "token": ""
+    },
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AHRFFSAR2UBVQVK7BBURW7YNV6LFYIB3K5VRM6P4LWJWLKZ5Z7JJD4A6EV4PITNY3PVSPI5ES5QTWJJCKIPYJG2A6DNOQGR4NGNUKIWK2QJACODJTSBVDXKYWVBMZ2S6WNNEVREWEJKRSOZEDFCU4F7FXZYORFCNKDGML4WM4ORB7OSVVNTFPSDY35YAPMD2T7LHJQGHZTWPAQQ"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.AFQPC4YWWTVVNJ7JHL5I4TMG7RTKX2NO2BSKZTBQKYCNWV5CWEWOJPZCLEVCZTYEQUQJXCUYA6GLEIXYKOC7IXNTHURLPSHSL42YGSE7UG4S43ZV35POSDLKHBTZ3NLX26U3V27SD45ALBCQ7MYBYLCM4IQ4XDLMVIPM3RQRUXWCCV7GMMPR4",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.eu.amazonalexa.com",
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjZlOGJhMzJmLTI0MDgtNGZmNy05YjM1LWU5MGJhZTA5M2EzYSIsImV4cCI6MTUxOTMwNzgwMywiaWF0IjoxNTE5MzA0MjAzLCJuYmYiOjE1MTkzMDQyMDMsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUZRUEM0WVdXVFZWTko3SkhMNUk0VE1HN1JUS1gyTk8yQlNLWlRCUUtZQ05XVjVDV0VXT0pQWkNMRVZDWlRZRVFVUUpYQ1VZQTZHTEVJWFlLT0M3SVhOVEhVUkxQU0hTTDQyWUdTRTdVRzRTNDNaVjM1UE9TRExLSEJUWjNOTFgyNlUzVjI3U0Q0NUFMQkNRN01ZQllMQ000SVE0WERMTVZJUE0zUlFSVVhXQ0NWN0dNTVBSNCIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFIUkZGU0FSMlVCVlFWSzdCQlVSVzdZTlY2TEZZSUIzSzVWUk02UDRMV0pXTEtaNVo3SkpENEE2RVY0UElUTlkzUFZTUEk1RVM1UVRXSkpDS0lQWUpHMkE2RE5PUUdSNE5HTlVLSVdLMlFKQUNPREpUU0JWRFhLWVdWQk1aMlM2V05ORVZSRVdFSktSU09aRURGQ1U0RjdGWFpZT1JGQ05LREdNTDRXTTRPUkI3T1NWVk5URlBTRFkzNVlBUE1EMlQ3TEhKUUdIWlRXUEFRUSJ9fQ.RJjCpX2mLBEjqkckVD4oQPdzRdtZjnfXBtVrWbbmZ-p2W031HyGJezO3gpCcgDI0o5TJGvDfAxtN15lhyN9SCx4nN3pydPMHaPOBurd3sSNjlDKRA2VRAtkBcNVxJhrU-wDp6foe0CTJ9BHcqUMiK_b-BO5DF9FSjGmt3U5HiL0P9Bf3Up5GSjIYuFXuoFSKEbw5OHOezkbNyDMvu5vwxhkSQxw1C5UnutHcmZrC2x0SpZKjRGRCBMaGNouReM-DQ9sdqFSoePZU9QJmKGLVgKS8-1uu-BTCSDe4rLo8u4igFf497svxWpbjCAOY9KnJP2c-v7kx78pbCXJegLV13g"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.c79f9661-cb76-42ba-8efa-67f606f5ed2b",
+    "timestamp": "2018-02-22T12:56:43Z",
+    "locale": "en-GB",
+    "intent": {
+      "name": "AddRemindersIntent",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "ReminderName": {
+          "name": "ReminderName",
+          "value": "notebook",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a.REMINDERS",
+                "status": {
+                  "code": "ER_SUCCESS_NO_MATCH"
+                }
+              }
+            ]
+          },
+          "confirmationStatus": "CONFIRMED"
+        },
+        "ReminderType": {
+          "name": "ReminderType",
+          "value": "school",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a.REMINDER_TYPE",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "school",
+                      "id": "7516c3b35580b3490248629cff5e498c"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "CONFIRMED"
+        }
+      }
+    },
+    "dialogState": "IN_PROGRESS"
+  }
+}
