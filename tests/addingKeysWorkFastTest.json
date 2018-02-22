@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.c85f57dc-f88f-4633-8f8f-a1c7502f908c",
+    "application": {
+      "applicationId": "amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.AHRFFSAR2UBVQVK7BBURW7YNV6LFYIB3K5VRM6P4LWJWLKZ5Z7JJD4A6EV4PITNY3PVSPI5ES5QTWJJCKIPYJG2A6DNOQGR4NGNUKIWK2QJACODJTSBVDXKYWVBMZ2S6WNNEVREWEJKRSOZEDFCU4F7FXZYORFCNKDGML4WM4ORB7OSVVNTFPSDY35YAPMD2T7LHJQGHZTWPAQQ"
+    }
+  },
+  "context": {
+    "AudioPlayer": {
+      "playerActivity": "IDLE"
+    },
+    "Display": {
+      "token": ""
+    },
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.AHRFFSAR2UBVQVK7BBURW7YNV6LFYIB3K5VRM6P4LWJWLKZ5Z7JJD4A6EV4PITNY3PVSPI5ES5QTWJJCKIPYJG2A6DNOQGR4NGNUKIWK2QJACODJTSBVDXKYWVBMZ2S6WNNEVREWEJKRSOZEDFCU4F7FXZYORFCNKDGML4WM4ORB7OSVVNTFPSDY35YAPMD2T7LHJQGHZTWPAQQ"
+      },
+      "device": {
+        "deviceId": "amzn1.ask.device.AFQPC4YWWTVVNJ7JHL5I4TMG7RTKX2NO2BSKZTBQKYCNWV5CWEWOJPZCLEVCZTYEQUQJXCUYA6GLEIXYKOC7IXNTHURLPSHSL42YGSE7UG4S43ZV35POSDLKHBTZ3NLX26U3V27SD45ALBCQ7MYBYLCM4IQ4XDLMVIPM3RQRUXWCCV7GMMPR4",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Display": {
+            "templateVersion": "1.0",
+            "markupVersion": "1.0"
+          }
+        }
+      },
+      "apiEndpoint": "https://api.eu.amazonalexa.com",
+      "apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjZlOGJhMzJmLTI0MDgtNGZmNy05YjM1LWU5MGJhZTA5M2EzYSIsImV4cCI6MTUxOTMxOTE4MCwiaWF0IjoxNTE5MzE1NTgwLCJuYmYiOjE1MTkzMTU1ODAsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUZRUEM0WVdXVFZWTko3SkhMNUk0VE1HN1JUS1gyTk8yQlNLWlRCUUtZQ05XVjVDV0VXT0pQWkNMRVZDWlRZRVFVUUpYQ1VZQTZHTEVJWFlLT0M3SVhOVEhVUkxQU0hTTDQyWUdTRTdVRzRTNDNaVjM1UE9TRExLSEJUWjNOTFgyNlUzVjI3U0Q0NUFMQkNRN01ZQllMQ000SVE0WERMTVZJUE0zUlFSVVhXQ0NWN0dNTVBSNCIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFIUkZGU0FSMlVCVlFWSzdCQlVSVzdZTlY2TEZZSUIzSzVWUk02UDRMV0pXTEtaNVo3SkpENEE2RVY0UElUTlkzUFZTUEk1RVM1UVRXSkpDS0lQWUpHMkE2RE5PUUdSNE5HTlVLSVdLMlFKQUNPREpUU0JWRFhLWVdWQk1aMlM2V05ORVZSRVdFSktSU09aRURGQ1U0RjdGWFpZT1JGQ05LREdNTDRXTTRPUkI3T1NWVk5URlBTRFkzNVlBUE1EMlQ3TEhKUUdIWlRXUEFRUSJ9fQ.U-9kFtb7Eya7YLlY21X8v8FNvwFH76H-uie5zCA7IO1iejCHkCKv3DEK7m5PrbMYRHypjjqIZgo-vq7rqEvuqLAfW949bTiVo-1JUUTfiq5MQplGirM6WYqw4T3IkmacvamWqF0HyFEa52ZDBzDMvHY8Bs4g-Jx2D6nb-cyOJCLya_FSnQgHzIpEX-OV2czzkjweIA40i0lB8OZToQoeyhG9KIe6MuaGZHd6L19yJpP3HgUBo3lQh-Cmv6DxHnE0HF_8nU3kD11mYGTmpF_UT8V9j7gjjZBq5wIMwSkGx11FmtVrUV8zVEeFkVtVmdiDRpDwQ7CU2y9ukO5BXj6M-w"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.995811cb-e0ad-43f4-a7b3-b9a9d2df9353",
+    "timestamp": "2018-02-22T16:06:20Z",
+    "locale": "en-GB",
+    "intent": {
+      "name": "AddRemindersIntent",
+      "confirmationStatus": "NONE",
+      "slots": {
+        "ReminderName": {
+          "name": "ReminderName",
+          "value": "car keys",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a.REMINDERS",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "car keys",
+                      "id": "664209d50303937fc0fce94ca1633ec9"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        },
+        "ReminderType": {
+          "name": "ReminderType",
+          "value": "work",
+          "resolutions": {
+            "resolutionsPerAuthority": [
+              {
+                "authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.6e8ba32f-2408-4ff7-9b35-e90bae093a3a.REMINDER_TYPE",
+                "status": {
+                  "code": "ER_SUCCESS_MATCH"
+                },
+                "values": [
+                  {
+                    "value": {
+                      "name": "work",
+                      "id": "67e92c8765a9bc7fb2d335c459de9eb5"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "confirmationStatus": "NONE"
+        }
+      }
+    },
+    "dialogState": "STARTED"
+  }
+}
