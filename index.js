@@ -15,7 +15,7 @@ const dbDelete = promisify(docClient.delete, docClient);
 
 //instructions when we invoke the app
 const instructions =    `Welcome to Foggy Mind<break strength="medium" /> 
-                        The following commands are available: Get reminders list,
+                        The following commands are available: Get reminder by type,
                         add a reminder, or remove a reminder. What would you like
                         to do?`;
 
@@ -123,7 +123,7 @@ const handlers = {
         .then(data=> {
             console.log('Add reminder succeeded', data);
 
-            this.emit(':tell', 'Reminder ${name} added');
+            this.emit(':tell', `Reminder ${name} added`);
         })
         //else tell user error 
         .catch(err => {
@@ -182,7 +182,8 @@ const handlers = {
             console.error(err);
           });
         }
-        catch(error){ context.fail('Exception: ${error}')}
+    catch (error) {
+        context.fail(`Exception: ${error}`)}
 
         
       },
@@ -241,7 +242,7 @@ const handlers = {
             this.emit(':tell', errorMsg);
             throw new Error(errorMsg);
         })
-        .then(date=> {
+        .then(data=> {
             console.log('Delete item succeeded', data);
             //suceeded, deleted the item let user know
             this.emit(':tell', `Reminder ${reminders} deleted!`);
