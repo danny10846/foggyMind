@@ -130,6 +130,58 @@ const handlers = {
             console.error(err);
         });
     },
+
+    'LeavingIntent'() {
+        const { userId } = this.event.session.user;
+        const { slots } = this.event.request.intent;
+
+        let output;
+
+        if (!slots.ReminderType.value) {
+            const slotToElicit = 'ReminderType';
+            const speechOutput = 'Which reminders would you like before you leave?';
+            const repromptSpeech = 'Which reminders would you like before you leave?';
+            return this.emit(':elicitSlot', slotToElicit, speechOutput, repromptSpeech);
+        }
+
+        const reminderType = slots.ReminderType.value;
+
+        const dynamoParams = {
+            TableName: remindersTable
+        };
+        // if we have the reminder type then we can begin to query database
+        if (reminderType) {
+            //filter database to fit only our reminder type
+            dynamoParams.FilterExpression = 'UserId = :user_id AND ReminderType = :reminderType';
+            //use this function to replace :reminderType token with reminderType string instead at run time
+            dynamoParams.ExpressionAttributeValues = { ':user_id': userId, ':reminderType': reminderType };
+            //prepare our output for being appended to
+            output = `Don't forget to take your ${slots.ReminderType.value} reminders: <break strength="x-strong" />`;
+        }
+        //if we found the table then  
+        dbScan(dynamoParams)
+            .then(data => {
+                console.log('Read table succeeded!', data);
+                //if items exist based on our filtering then append these items to output
+                if (data.Items && data.Items.length) {
+                    data.Items.forEach(item => { output += `${item.Name}<break strength="x-strong" /> `; });
+                }
+                //else return no reminders
+                else {
+                    output = 'No reminders found!';
+                }
+
+                console.log('output', output);
+
+                this.emit(':tell', output);
+            })
+            .catch(err => {
+                console.error(err);
+            });
+        
+
+        
+    },
     //intent to return a list of reminders based on their type
     'GetRemindersIntent'(){
     try{
