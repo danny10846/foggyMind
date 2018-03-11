@@ -16,8 +16,8 @@ const dbDelete = promisify(docClient.delete, docClient);
 //instructions when we invoke the app
 const instructions =    `Welcome to Foggy Mind<break strength="medium" /> 
                         The following commands are available: Get reminder by type,
-                        add a reminder, or remove a reminder. What would you like
-                        to do?`;
+                        add a reminder or remove a reminder. You can also register your email within the app
+                        What would you like to do?`;
 
 const handlers = {
                     
@@ -25,7 +25,8 @@ const handlers = {
     //When the skill is invocated it will begin with our 
     //initial instructions explaining what the user can do
     'LaunchRequest'() {
-        this.emit(':ask', instructions);
+        this.emit(':ask', instructions, instructions, 'Link your account', 'Please link your account if you wish to use email functionality');
+
     },
 
     'AddRemindersIntent'() {
@@ -136,6 +137,7 @@ const handlers = {
         const { slots } = this.event.request.intent;
 
         let output;
+        let cardOutput
 
         if (!slots.ReminderType.value) {
             const slotToElicit = 'ReminderType';
@@ -157,23 +159,26 @@ const handlers = {
             dynamoParams.ExpressionAttributeValues = { ':user_id': userId, ':reminderType': reminderType };
             //prepare our output for being appended to
             output = `Don't forget to take your ${slots.ReminderType.value} reminders: <break strength="x-strong" />`;
+            cardOutput = `Don't forget to take your ${slots.ReminderType.value} reminders: `;
         }
-        //if we found the table then  
+        //if we found the table then scan all items in table 
         dbScan(dynamoParams)
             .then(data => {
                 console.log('Read table succeeded!', data);
                 //if items exist based on our filtering then append these items to output
                 if (data.Items && data.Items.length) {
-                    data.Items.forEach(item => { output += `${item.Name}<break strength="x-strong" /> `; });
+                    data.Items.forEach(item => {
+                        output += `${item.Name}<break strength="x-strong" /> `; cardOutput += `${item.Name}, `});
                 }
                 //else return no reminders
                 else {
                     output = 'No reminders found!';
+                    cardOutput = 'No reminders found!';
                 }
 
                 console.log('output', output);
 
-                this.emit(':tell', output);
+                this.emit(':tellWithCard', output, `Leaving for ${slots.ReminderType.value} :`, cardOutput);
             })
             .catch(err => {
                 console.error(err);
@@ -190,6 +195,7 @@ const handlers = {
 
         //an output for us to append to with new items
         let output;
+        let cardOutput;
         //if we don't have value then get the type of reminder we request
         //no need to confirm slot as we're changing database in any way
         if (!slots.ReminderType.value) {
@@ -212,6 +218,7 @@ const handlers = {
             dynamoParams.ExpressionAttributeValues = { ':user_id': userId, ':reminderType': reminderType };
             //prepare our output for being appended to
             output = `The following ${slots.ReminderType.value} reminders were found: <break strength="x-strong" />`;
+            cardOutput = `The following ${slots.ReminderType.value} reminders were found: `;
         }
           //if we found the table then  
           dbScan(dynamoParams)
@@ -219,16 +226,18 @@ const handlers = {
             console.log('Read table succeeded!', data);
             //if items exist based on our filtering then append these items to output
             if (data.Items && data.Items.length) {
-              data.Items.forEach(item => { output += `${item.Name}<break strength="x-strong" /> `; });
+                data.Items.forEach(item => {
+                    output += `${item.Name}<break strength="x-strong" /> `; cardOutput += `${item.Name}, `});
             }
             //else return no reminders
             else {
-              output = 'No reminders found!';
+                output = 'No reminders found!';
+                cardOutput = 'No reminders found!';
             }
     
             console.log('output', output);
     
-            this.emit(':tell', output);
+            this.emit(':tellWithCard', output, `Your ${slots.ReminderType.value} reminders: `, cardOutput);
           })
           .catch(err => {
             console.error(err);
@@ -238,9 +247,9 @@ const handlers = {
         context.fail(`Exception: ${error}`)}
 
         
-      },
-      //intent to remove individual reminders from our database 
-      'RemoveRemindersIntent'(){
+    },
+    //intent to remove individual reminders from our database 
+    'RemoveRemindersIntent'(){
           const {slots} = this.event.request.intent;
           //if we don't have name of the reminder to delete, get it
           if (!slots.ReminderName.value) {
@@ -301,7 +310,6 @@ const handlers = {
         })
         .catch(err=> console.log(err));
     },
-
       //basic helper handlers
       'AMAZON.HelpIntent'() {
         var speechOutput = "Why not try adding a reminder if this is your first time using the skill?";
