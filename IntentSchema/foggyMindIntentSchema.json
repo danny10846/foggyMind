@@ -1,0 +1,272 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "REMINDER_TYPE",
+        "values": [
+          {
+            "id": "",
+            "name": {
+              "value": "music",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "general",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "medicinal",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "school",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "work",
+              "synonyms": []
+            }
+          }
+        ]
+      },
+      {
+        "name": "REMINDERS",
+        "values": [
+          {
+            "id": "",
+            "name": {
+              "value": "oats",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "carrots",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "chips",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "fish",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "car keys",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "glasses",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "documents",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "headphones",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "medication",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "wallet",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "phone",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "briefcase",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "bag",
+              "synonyms": []
+            }
+          },
+          {
+            "id": "",
+            "name": {
+              "value": "stationery",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AddRemindersIntent",
+        "samples": [
+          "add a reminder",
+          "add reminder",
+          "add {ReminderName} to my {ReminderType} reminders",
+          "add {ReminderName}"
+        ],
+        "slots": [
+          {
+            "name": "ReminderName",
+            "type": "REMINDERS",
+            "samples": [
+              "{ReminderName}"
+            ]
+          },
+          {
+            "name": "ReminderType",
+            "type": "REMINDER_TYPE"
+          }
+        ]
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "GetRemindersIntent",
+        "samples": [
+          "for my reminders",
+          "for my list",
+          "to remind me",
+          "for reminders",
+          "Get all",
+          "List all",
+          "get reminders list",
+          "get reminders"
+        ],
+        "slots": [
+          {
+            "name": "ReminderType",
+            "type": "REMINDER_TYPE"
+          }
+        ]
+      },
+      {
+        "name": "LeavingIntent",
+        "samples": [
+          "I'm leaving",
+          "I'm leaving for {ReminderType}"
+        ],
+        "slots": [
+          {
+            "name": "ReminderType",
+            "type": "REMINDER_TYPE"
+          }
+        ]
+      },
+      {
+        "name": "RemoveRemindersIntent",
+        "samples": [
+          "delete {ReminderName}",
+          "remove {ReminderName}",
+          "remove a reminder",
+          "remove reminder",
+          "delete a reminder"
+        ],
+        "slots": [
+          {
+            "name": "ReminderName",
+            "type": "REMINDERS"
+          }
+        ]
+      }
+    ],
+    "invocationName": "foggy mind"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-AddRemindersIntent.IntentSlot-ReminderName",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the reminder?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "AddRemindersIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "ReminderName",
+            "type": "REMINDERS",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddRemindersIntent.IntentSlot-ReminderName"
+            }
+          },
+          {
+            "name": "ReminderType",
+            "type": "REMINDER_TYPE",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
