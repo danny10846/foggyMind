@@ -16,7 +16,7 @@ const dbDelete = promisify(docClient.delete, docClient);
 //instructions when we invoke the app
 const instructions =    `Welcome to Foggy Mind<break strength="medium" /> 
                         The following commands are available: Get reminder by type,
-                        add a reminder or remove a reminder. You can also register your email within the app
+                        add a reminder or remove a reminder. You can also register your email within the app<break strength="medium" /> 
                         What would you like to do?`;
 
 const handlers = {
@@ -25,7 +25,7 @@ const handlers = {
     //When the skill is invocated it will begin with our 
     //initial instructions explaining what the user can do
     'LaunchRequest'() {
-        this.emit(':ask', instructions, instructions, 'Link your account', 'Please link your account if you wish to use email functionality');
+        this.emit(':askWithLinkAccountCard', instructions);
 
     },
 
@@ -74,7 +74,7 @@ const handlers = {
                 const repromptSpeech = speechOutput;
                 return this.emit(':confirmSlot', slotToConfirm, speechOutput, repromptSpeech);
             }
-
+                //reprompt if user doesn't say anything 
                 const slotToElicit = 'ReminderType';
                 const speechOutput = 'What type of reminder is this?';
                 const repromptSpeech = 'What type of reminder is this?';
@@ -131,23 +131,23 @@ const handlers = {
             console.error(err);
         });
     },
-
+    //Intent designed for the user to naturally leave whilst retrieving their specific reminder type 
     'LeavingIntent'() {
         const { userId } = this.event.session.user;
         const { slots } = this.event.request.intent;
 
         let output;
         let cardOutput
-
+        //if we don't have reminder type value, retrieve it 
         if (!slots.ReminderType.value) {
             const slotToElicit = 'ReminderType';
             const speechOutput = 'Which reminders would you like before you leave?';
             const repromptSpeech = 'Which reminders would you like before you leave?';
             return this.emit(':elicitSlot', slotToElicit, speechOutput, repromptSpeech);
         }
-
+        //store in variable
         const reminderType = slots.ReminderType.value;
-
+        //set up our table
         const dynamoParams = {
             TableName: remindersTable
         };
@@ -236,7 +236,7 @@ const handlers = {
             }
     
             console.log('output', output);
-    
+            //output the reminders as a list
             this.emit(':tellWithCard', output, `Your ${slots.ReminderType.value} reminders: `, cardOutput);
           })
           .catch(err => {
@@ -295,10 +295,10 @@ const handlers = {
             //if we found the reminder we want to delete then attempt to delete it
             if (reminder) {
               console.log('Attempting to delete data', data);
-    
+               
               return dbDelete(dynamoParams);
             }
-
+              //else return error
             const errorMsg = `Reminder ${reminders} not found!`;
             this.emit(':tell', errorMsg);
             throw new Error(errorMsg);
@@ -316,10 +316,11 @@ const handlers = {
         var reprompt = "Please go to the skill page to find more help!";
         this.emit(":ask", speechOutput, reprompt);
       },
-    
+        //user asks to stop
       'AMAZON.StopIntent'() {
         this.emit(":tell", "Goodbye!");
       },
+      //user asks to cancel
       'AMAZON.CancelIntent'(){
         this.emit(":tell", "Goodbye!");
       }
